@@ -71,6 +71,15 @@ body {
         float: right;
     }
 
+    &__edit_input {
+        margin-left: 1rem;
+        font-size: 1rem;
+        background-color: inherit;
+        border: none;
+        color: $primary-color;
+        border-bottom: 1px solid $secondary-color;
+    }
+
     &__item {
         padding: 1rem 0.5rem;
         margin-bottom: 0.5rem;

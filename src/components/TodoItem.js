@@ -26,7 +26,8 @@ export const TodoItem = ({todo, handleUpdateTodo, handleDeleteTodo}) => {
                 <input className='todo-list__item-checkbox' type="checkbox" name={todo.id} checked={todo.completed}
                        onChange={handleCheckboxClick} id={todo.id}/>
                 {editing === true
-                    ? <input type="text" value={todo.value} onChange={handleEditTodo}/>
+                    ?
+                    <input type="text" value={todo.value} onChange={handleEditTodo} className='todo-list__edit_input'/>
                     : <span
                         className={todo.completed ? 'todo-list__item-value completed' : 'todo-list__item-value'}>{todo.value}</span>}
             </label>
