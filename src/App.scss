@@ -1,0 +1,15 @@
+$bg-color: #090809;
+$secondary-color: #DDDBF1;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $bg-color;
+    color: $secondary-color;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
