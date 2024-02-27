@@ -1,9 +1,15 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {TodoItem} from "./TodoItem";
 import {TodoComposer} from "./TodoComposer";
 
 export const TodoList = () => {
-    const [todos, setTodos] = useState([{id: 1, value: 'Learn React', completed: false}])
+    const [todos, setTodos] = useState(
+        JSON.parse(localStorage.getItem('todos')) || [{id: 1, value: 'Learn React', completed: false}]
+    )
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos]);
 
     const handleUpdateTodo = (updatedTodo) => {
         const newTodos = todos.map(todo =>
@@ -29,6 +35,7 @@ export const TodoList = () => {
             <ul className='todo-list'>
                 {todos.length !== 0
                     ? todos.map(todo => <TodoItem todo={todo}
+                                                  key={todo.id}
                                                   handleUpdateTodo={handleUpdateTodo}
                                                   handleDeleteTodo={handleDeleteTodo}/>)
                     : <li className='todo-list__info'>Your list is empty</li>}
