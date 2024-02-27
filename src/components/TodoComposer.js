@@ -15,10 +15,18 @@ export const TodoComposer = ({handleAddTodo}) => {
         setTodoValue('')
     }
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter' && todoValue.trim() !== '') {
+            const todo = createTodo(todoValue)
+            handleAddTodo(todo)
+            setTodoValue('')
+        }
+    }
+
     return (
         <>
             <input type={"text"} className='todo-list__input' value={todoValue} onChange={handleUpdateTodo}
-                   placeholder={"Enter your todo here"}/>
+                   placeholder={"Enter your todo here"} onKeyDown={handleKeyDown}/>
             <button type={"button"} disabled={todoValue.length === 0} onClick={handleAddTodoClick}
                     className='todo-list__add-btn'>Add Todo
             </button>
