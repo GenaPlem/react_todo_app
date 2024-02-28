@@ -26,7 +26,7 @@ export const TodoComposer = ({handleAddTodo}) => {
     return (
         <>
             <input type={"text"} className='todo-list__input' value={todoValue} onChange={handleUpdateTodo}
-                   placeholder={"Enter your todo here"} onKeyDown={handleKeyDown}/>
+                   placeholder={"Enter your todo here"} onKeyDown={handleKeyDown} maxLength={25}/>
             <button type={"button"} disabled={todoValue.length === 0} onClick={handleAddTodoClick}
                     className='todo-list__add-btn'>Add Todo
             </button>

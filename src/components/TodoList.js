@@ -4,8 +4,16 @@ import {TodoComposer} from "./TodoComposer";
 
 export const TodoList = () => {
     const [todos, setTodos] = useState(
-        JSON.parse(localStorage.getItem('todos')) || [{id: 1, value: 'Learn React', completed: false}]
+        [{id: 1, value: 'Learn React', completed: false}]
     )
+
+    useEffect(() => {
+        const item = JSON.parse(localStorage.getItem('todos'))
+
+        if (item) {
+            setTodos(item)
+        }
+    }, [])
 
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos));
